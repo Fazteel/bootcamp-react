@@ -1,12 +1,12 @@
 import Navbar from "./layout/Navbar";
 import Home from "./views/Home" ;
-import Footer from "./layout/Footer";
+import Props from "./views/Props";
 function App() {
   return (
     <div>
       <Navbar />
+      {/* <Props /> */}
       <Home/>
-      {/* <Footer /> */}
     </div>
   );
 }
