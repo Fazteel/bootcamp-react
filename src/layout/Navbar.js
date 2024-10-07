@@ -1,12 +1,15 @@
+import Clock from "../components/Clock";
+
 function Navbar() {
     return (
-        <>
-            <div class="text-start">
+        <> 
+            <div class="flex items-center justify-beetwen">
                 <button class="text-gray-700 p-4 focus:outline-none" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
                     <svg class="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
                     </svg>
                 </button>
+                <Clock/>
             </div>
 
             <div id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
