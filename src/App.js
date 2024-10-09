@@ -1,36 +1,25 @@
-// src/App.js
-import React, { useState, useEffect } from 'react';
-import Navbar from './layout/Navbar';
-import VideoPlayer from './components/VideoPlayer';
-import VideoList from './components/VideoList';
+import React from 'react'
+import Navbar from './layout/Navbar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './views/Home'
+import About from './views/About'
+import Contact from './views/Contact'
+import Youtube from './views/Youtube'
+import Hook from './components/Hooks'
+import CekKhodam from './components/cekKhodam'
 
-const App = () => {
-  const [videos, setVideos] = useState([]);
-  const [selectedVideoId, setSelectedVideoId] = useState(null);
-
-  const fetchVideos = async (query) => {
-    if (!query) return; 
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyCAf9W-nASejHLcf5L6qZ5Mg95tQEAEvZU`);
-    const data = await response.json();
-    setVideos(data.items);
-    if (data.items.length > 0) {
-      setSelectedVideoId(data.items[0].id.videoId);
-    }
-  };
-
-  useEffect(() => {
-    fetchVideos('react tutorial'); 
-  }, []);
-
+function App() {
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar onSearch={fetchVideos} />
-      <div className="flex flex-grow">
-        <VideoPlayer videoId={selectedVideoId} />
-        <VideoList videos={videos} onVideoSelect={setSelectedVideoId} />
-      </div>
-    </div>
-  );
-};
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/about' exact element={<About />} />
+        <Route path='/contact' exact element={<Contact />} />
+        <Route path='/youtube' exact element={<Youtube />} />
+      </Routes>
+    </Router>
+  )
+}
 
-export default App;
+export default App

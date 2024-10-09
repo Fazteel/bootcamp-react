@@ -1,37 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class Clock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: new Date()
-    };
-  }
+const Clock = () => {
+  const [time, setTime] = useState(new Date());
 
-  componentDidMount() {
+  useEffect(() => {
     // Mengatur interval setiap 1 detik untuk memperbarui waktu
-    this.timerID = setInterval(() => this.tick(), 1000);
-  }
+    const timerID = setInterval(() => setTime(new Date()), 1000);
 
-  componentWillUnmount() {
     // Membersihkan interval saat komponen di-unmount
-    clearInterval(this.timerID);
-  }
+    return () => clearInterval(timerID);
+  }, []);
 
-  tick() {
-    // Mengupdate state dengan waktu saat ini
-    this.setState({
-      time: new Date()
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h4 className='font-bold text-black'>{this.state.time.toLocaleTimeString()}</h4>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1 className='font-bold text-9xl mt-4 text-center text-black'>{time.toLocaleTimeString()}</h1>
+    </div>
+  );
+};
 
 export default Clock;
