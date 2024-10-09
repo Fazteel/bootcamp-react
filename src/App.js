@@ -6,7 +6,6 @@ import About from './views/About'
 import Contact from './views/Contact'
 import Youtube from './views/Youtube'
 import Hook from './components/Hooks'
-import CekKhodam from './components/cekKhodam'
 
 function App() {
   return (

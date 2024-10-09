@@ -28,7 +28,7 @@ function CekKhodam() {
         }
     }
     return (
-        <div className='p-44 min-h-screen'>
+        <div className='p-44 mt-32 min-h-screen'>
             <h1 className='font-bold text-center mb-20'>Cek Khodam</h1>
             <form className='flex flex-col' onSubmit={handleSubmit}>
                 <input className='rounded-full' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Masukan Nama...' />
