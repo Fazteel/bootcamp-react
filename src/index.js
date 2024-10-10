@@ -1,18 +1,19 @@
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// const element = <h1>This is React</h1>;
-// ReactDOM.render(element, document.getElementById("root"))
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Provider } from 'react-redux'; 
+import { store } from './components/store'; 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

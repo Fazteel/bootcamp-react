@@ -17,10 +17,10 @@ class Home extends Component {
   };
 
   render() {
-    const commentsData = this.generateFakeComments(10);
+    const commentsData = this.generateFakeComments(20);
 
     return (
-      <div className="px-8 md:px-36">
+      <div className="mt-10 px-8 md:px-36">
         <div className="flex items-center justify-center">
           <div className="w-full md:w-2/3 lg:w-1/2">
             <CommentsList comments={commentsData} />
